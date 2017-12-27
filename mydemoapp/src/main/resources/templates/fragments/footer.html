@@ -1,0 +1,79 @@
+<footer id="footer" th:fragment="footersocial">
+    <div class="inner">
+        <ul class="icons">
+            <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</footer>
+
+<th:block th:fragment="scripts">
+    <!-- Scripts -->
+    <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+    <script src="../static/js/jquery.scrolly.min.js" th:src="@{/js/jquery.scrolly.min.js}"></script>
+    <script src="../static/js/jquery.scrollex.min.js" th:src="@{/js/jquery.scrollex.min.js}"></script>
+    <script src="../static/js/skel.min.js" th:src="@{/js/skel.min.js}"></script>
+    <script src="../static/js/util.js" th:src="@{/js/util.js}"></script>
+    <!--[if lte IE 8]><script src="../static/js/ie/respond.min.js" th:src="@{/js/ie/respond.min.js}"></script><![endif]-->
+    <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+</th:block>
+
+
+<section id="contact" th:fragment="footercontactinfo"/>
+<a name="footercontactform" id="footercontactform"></a>
+<div class="inner">
+    <section>
+        <form method="post" action="#footercontactform" th:action="@{#footercontactform}" th:object="${contactForm}">
+            <div class="field half first">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" th:field="*{name}"/>
+            </div>
+            <div class="field half">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" th:field="*{email}"/>
+            </div>
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="6" th:field="*{message}"></textarea>
+            </div>
+            <ul class="actions">
+                <li><input type="submit" value="Send Message" class="special" /></li>
+                <li><input type="reset" value="Clear" /></li>
+            </ul>
+        </form>
+
+        <p th:remove="${!visibility} ? tag"  th:text="${visibility} ? ${feedbackmessage}" style="padding: 10px; border: 2px solid deepskyblue; color: greenyellow"></p>
+    </section>
+    <section class="split">
+        <section>
+            <div class="contact-method">
+                <span class="icon alt fa-envelope"></span>
+                <h3>Email</h3>
+                <a href="#">information@untitled.tld</a>
+            </div>
+        </section>
+        <section>
+            <div class="contact-method">
+                <span class="icon alt fa-phone"></span>
+                <h3>Phone</h3>
+                <span>(000) 000-0000 x12387</span>
+            </div>
+        </section>
+        <section>
+            <div class="contact-method">
+                <span class="icon alt fa-home"></span>
+                <h3>Address</h3>
+                <span>1234 Somewhere Road #5432<br />
+										Nashville, TN 00000<br />
+										United States of America</span>
+            </div>
+        </section>
+    </section>
+</div>
+</section>

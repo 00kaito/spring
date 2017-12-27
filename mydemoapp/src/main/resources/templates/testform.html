@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://thymeleaf.org/" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/header :: header">
+
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <th:block th:include="fragments/logoandmenu :: logoandmenu"/>
+
+    <!-- Banner -->
+    <section id="banner" class="major">
+        <div class="inner">
+
+                <header class="major">
+                    <h1>Log in</h1>
+                </header>
+                <span th:if="${error} != null" th:text="${error}"></span>
+                <div style="display: block; width: 50%; margin: 0 auto;">
+                <form th:if="${error} == null" th:action="@{/login}" method="post">
+                    <input type="text" th:name="login" placeholder="Wpisz login"/>
+                    <br/>
+                    <input type="password" th:name="password" placeholder="Wpisz haslo"/>
+                    <br/>
+                    <input type="submit" value="Wyslij">
+                </form>
+                </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- Contact
+<section id="contact" th:include="fragments/footer :: footercontactinfo">
+</section>-->
+
+<!-- Footer -->
+<footer id="footer" th:include="fragments/footer :: footersocial">
+</footer>
+</div>
+<!-- Scripts -->
+<th:block th:include="fragments/footer :: scripts"/>
+
+
+</body>
+</html>
