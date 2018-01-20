@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-5 col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 text-center">
+
+            <span th:text="${info}" th:style="${cangetcredit} ? 'color:green' : 'color:red' "></span>
+            <form action="#" method="post">
+                <label>Zarobki</label>
+                <input type="text" name="income" th:value="${income}">
+                <br/><label>Kwota pożyczki</label>
+                <input type="text" name="credit" th:value="${amount}">
+                <br/><label>Miesięczne zobowiązania</label>
+                <input type="text" name="liabilities" th:value="${liabilities}">
+                <br/><label>Okres</label>
+                <input type="text" name="time" th:value="${cangetcredit} ? ${time} : ${minTime}">
+                <br/><input type="submit" value="Check">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>

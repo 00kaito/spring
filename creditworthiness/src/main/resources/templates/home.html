@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <span th:text="${info}" th:style="${cangetcredit} ? 'color:green' : 'color:red' "></span><br/>
+        <span th:text="${detailsInfo}"></span>
+    </div>
+
+    <div class="row">
+        <div class="form-group row">
+            <form action="#" method="post" th:object="${creditEvaluationForm}">
+                <label class="col-2 col-form-label">Zarobki</label>
+                <div class="col-10">
+                    <input type="number" name="income" th:field="*{income}" required pattern="[0-9]{1-5}">
+                </div>
+
+                <br/><label class="col-2 col-form-label">Kwota pożyczki</label>
+                <div class="col-10">
+                    <input type="number" name="credit" th:field="*{amount}" required>
+                </div>
+
+                <br/><label class="col-2 col-form-label">Miesięczne zobowiązania</label>
+                <div class="col-10">
+                    <input type="number" name="liabilities" th:field="*{liabilities}" required>
+                </div>
+
+                <br/><label class="col-2 col-form-label">Okres</label>
+                <div class="col-10">
+                    <input type="number" name="time" th:field="*{time}" required>
+                </div>
+
+                <p th:if="${#fields.hasErrors('time')}" th:errors="*{time}" required></p>
+
+
+                <br/><input type="submit" value="Check">
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
